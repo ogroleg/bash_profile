@@ -1,4 +1,4 @@
-source .profile_private  # execute sensitive code
+source ~/.profile_private  # execute sensitive code
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
@@ -17,9 +17,9 @@ parse_git_branch() {
 
 show_weather_once_a_day() {
      day=`date '+%d'`  # get current day number
-     stored_day=`cat .weather_stamp`  # get last stored day number
+     stored_day=`cat ~/.weather_stamp`  # get last stored day number
      
-     if [[ $day -ne $stored_day ]]; then echo $day > .weather_stamp && curl "wttr.in/Kyiv?0&n&Q";  # write current day num to file, make query to wttr.in (only this day, silent mode)
+     if [[ 10#$day -ne 10#$stored_day ]]; then echo $day > ~/.weather_stamp && curl "wttr.in/Kyiv?0&n&Q";  # write current day num to file, make query to wttr.in (only this day, silent mode)
      fi
 
      # see also: wttr.in/:help
